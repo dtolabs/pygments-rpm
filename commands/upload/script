@@ -10,7 +10,7 @@
 # and show its options.
 # 
 #/ command: pygments-rpm:upload: "Upload the RPM to GitHub"
-#/ usage: rerun pygments-rpm:upload [ --release <1>]  --version <> [ --owner <dtolabs>] [ --repository <third-party>] 
+#/ usage: rerun pygments-rpm:upload [ --release <1>]  --version <> [ --owner <dtolabs>] [ --repository <pygments-rpm>] 
 
 # Load common functions
 # ---------------------
