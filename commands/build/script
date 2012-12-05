@@ -10,7 +10,7 @@
 # and show its options.
 # 
 #/ command: pygments-rpm:build: "Build the Pygments RPM"
-#/ usage: rerun pygments-rpm:build  --version <> [ --release <1>] 
+#/ usage: rerun pygments-rpm:build  --version <> [ --release <1>] [ --package-name <dtolabs-pygments>] 
 
 # Load common functions
 # ---------------------
@@ -47,7 +47,7 @@ set -o nounset -o pipefail
 # declared by `rerun` or by the option parser function.
 
 #/ rerun-variables: RERUN, RERUN_VERSION, RERUN_MODULES, RERUN_MODULE_DIR
-#/ option-variables: VERSION RELEASE
+#/ option-variables: VERSION RELEASE PACKAGE_NAME
 
 # The `rerun_options_parse` function processes the command line
 # arguments. Each accepted command line flag results in setting 

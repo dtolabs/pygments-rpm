@@ -10,7 +10,7 @@
 # and show its options.
 # 
 #/ command: pygments-rpm:clean: "Clean up the build"
-#/ usage: rerun pygments-rpm:clean [options]
+#/ usage: rerun pygments-rpm:clean [ --package-name <dtolabs-pygments>] 
 
 # Load common functions
 # ---------------------
@@ -47,7 +47,7 @@ set -o nounset -o pipefail
 # declared by `rerun` or by the option parser function.
 
 #/ rerun-variables: RERUN, RERUN_VERSION, RERUN_MODULES, RERUN_MODULE_DIR
-#/ option-variables: 
+#/ option-variables: PACKAGE_NAME
 
 # The `rerun_options_parse` function processes the command line
 # arguments. Each accepted command line flag results in setting 
@@ -63,7 +63,7 @@ rerun_options_parse "$@"
 # Put the command implementation here.
 # - - -
 
-rm -f ${RERUN_MODULE_DIR}/Pygments-*.rpm
+rm -f ${RERUN_MODULE_DIR}/${PACKAGE_NAME}-*.rpm
 
 # Done. Exit with last command exit status.
 exit $?
