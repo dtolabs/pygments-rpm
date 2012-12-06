@@ -3,4 +3,4 @@
 # Mon Dec  3 10:57:56 PST 2012
 NAME=build
 DESCRIPTION="Build the Pygments RPM"
-OPTIONS="version release package-name"
+OPTIONS="version package-name build-number"

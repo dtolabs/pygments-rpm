@@ -61,12 +61,12 @@
   <customWorkspace>/var/lib/jenkins/jobs/pygments-rpm-pygments-rpm/workspace/pygments-rpm</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>rerun -M /var/lib/jenkins/jobs/pygments-rpm-pygments-rpm/workspace pygments-rpm:build --version 1.5 --release $BUILD_NUMBER</command>
+      <command>rerun -M /var/lib/jenkins/jobs/pygments-rpm-pygments-rpm/workspace pygments-rpm:build --version 1.5 --build-number $BUILD_NUMBER</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>dtolabs-pygments-1.5-$BUILD_NUMBER.noarch.rpm</artifacts>
+      <artifacts>dtolabs-pygments-1.5-$BUILD_NUMBER.el*.noarch.rpm</artifacts>
       <latestOnly>false</latestOnly>
     </hudson.tasks.ArtifactArchiver>
     <hudson.tasks.Mailer>
