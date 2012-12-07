@@ -63,13 +63,10 @@ rerun_options_parse "$@"
 # Put the command implementation here.
 # - - -
 
-# Get the distribution's release version:
-RELEASE_VERSION=$(rerun rpm:get-distribution-release-version)
-
 # Build the package contstructing the release number from the build number and the distribution's release version.
 rerun pygments-rpm:clean
-rerun pygments-rpm:package --version ${VERSION} --release ${BUILD_NUMBER}.el${RELEASE_VERSION}
-rerun pygments-rpm:upload --version ${VERSION} --release ${BUILD_NUMBER}.el${RELEASE_VERSION}
+rerun pygments-rpm:package --version ${VERSION} --release ${BUILD_NUMBER}
+rerun pygments-rpm:upload --version ${VERSION} --release ${BUILD_NUMBER}
 
 # Done. Exit with last command exit status.
 exit $?

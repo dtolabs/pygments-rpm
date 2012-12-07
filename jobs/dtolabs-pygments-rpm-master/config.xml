@@ -58,10 +58,10 @@
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
-  <customWorkspace>/var/lib/jenkins/jobs/pygments-rpm-pygments-rpm/workspace/pygments-rpm</customWorkspace>
+  <customWorkspace>/var/lib/jenkins/jobs/dtolabs-pygments-rpm-master/workspace/pygments-rpm</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>rerun -M /var/lib/jenkins/jobs/pygments-rpm-pygments-rpm/workspace pygments-rpm:build --version 1.5 --build-number $BUILD_NUMBER</command>
+      <command>rerun -M /var/lib/jenkins/jobs/dtolabs-pygments-rpm-master/workspace pygments-rpm:build --version 1.5 --build-number $BUILD_NUMBER</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

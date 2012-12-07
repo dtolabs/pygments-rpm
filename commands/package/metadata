@@ -3,4 +3,4 @@
 # Mon Dec  3 10:50:48 PST 2012
 NAME=package
 DESCRIPTION="Package the PyPI package as an RPM"
-OPTIONS="version release package-name packager"
+OPTIONS="version release package-name packager distribution-release-version"

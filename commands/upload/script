@@ -10,7 +10,7 @@
 # and show its options.
 # 
 #/ command: pygments-rpm:upload: "Upload the RPM to GitHub"
-#/ usage: rerun pygments-rpm:upload [ --release <1>]  --version <> [ --owner <dtolabs>] [ --repository <pygments-rpm>] [ --package-name <dtolabs-pygments>] 
+#/ usage: rerun pygments-rpm:upload [ --release <1>]  --version <> [ --owner <dtolabs>] [ --repository <pygments-rpm>] [ --package-name <dtolabs-pygments>] [ --architecture <noarch>] [ --distribution-release-version <$(rerun rpm:get-distribution-release-version)>] 
 
 # Load common functions
 # ---------------------
@@ -47,7 +47,7 @@ set -o nounset -o pipefail
 # declared by `rerun` or by the option parser function.
 
 #/ rerun-variables: RERUN, RERUN_VERSION, RERUN_MODULES, RERUN_MODULE_DIR
-#/ option-variables: RELEASE VERSION OWNER REPOSITORY PACKAGE_NAME
+#/ option-variables: RELEASE VERSION OWNER REPOSITORY PACKAGE_NAME ARCHITECTURE DISTRIBUTION_RELEASE_VERSION
 
 # The `rerun_options_parse` function processes the command line
 # arguments. Each accepted command line flag results in setting 
@@ -63,7 +63,7 @@ rerun_options_parse "$@"
 # Put the command implementation here.
 # - - -
 
-rerun github:create-download --force true --file ${RERUN_MODULE_DIR}/${PACKAGE_NAME}-${VERSION}-${RELEASE}.noarch.rpm --owner ${OWNER} --repository ${REPOSITORY}
+rerun github:create-download --force true --file ${RERUN_MODULE_DIR}/${PACKAGE_NAME}-${VERSION}-${RELEASE}.el${DISTRIBUTION_RELEASE_VERSION}.${ARCHITECTURE}.rpm --owner ${OWNER} --repository ${REPOSITORY}
 
 # Done. Exit with last command exit status.
 exit $?

@@ -10,7 +10,7 @@
 # and show its options.
 # 
 #/ command: pygments-rpm:package: "Package the PyPI package as an RPM"
-#/ usage: rerun pygments-rpm:package  --version <> [ --release <1>] [ --package-name <dtolabs-pygments>] [ --packager <build@dtosolutions.com>] 
+#/ usage: rerun pygments-rpm:package  --version <> [ --release <1>] [ --package-name <dtolabs-pygments>] [ --packager <build@dtosolutions.com>] [ --distribution-release-version <$(rerun rpm:get-distribution-release-version)>] 
 
 # Load common functions
 # ---------------------
@@ -47,7 +47,7 @@ set -o nounset -o pipefail
 # declared by `rerun` or by the option parser function.
 
 #/ rerun-variables: RERUN, RERUN_VERSION, RERUN_MODULES, RERUN_MODULE_DIR
-#/ option-variables: VERSION RELEASE PACKAGE_NAME PACKAGER
+#/ option-variables: VERSION RELEASE PACKAGE_NAME PACKAGER DISTRIBUTION_RELEASE_VERSION
 
 # The `rerun_options_parse` function processes the command line
 # arguments. Each accepted command line flag results in setting 
@@ -63,7 +63,7 @@ rerun_options_parse "$@"
 # Put the command implementation here.
 # - - -
 
-rerun python-setuptools:build --version ${VERSION} --package-release ${RELEASE} --directory ${RERUN_MODULE_DIR} --package-name ${PACKAGE_NAME} --name Pygments --packager "${PACKAGER}"
+rerun python-setuptools:build --version ${VERSION} --package-release ${RELEASE}.el${DISTRIBUTION_RELEASE_VERSION} --directory ${RERUN_MODULE_DIR} --package-name ${PACKAGE_NAME} --name Pygments --packager "${PACKAGER}"
 
 # Done. Exit with last command exit status.
 exit $?
